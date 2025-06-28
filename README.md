@@ -1,0 +1,1 @@
+XB323U switch HDMI1 or HDMI2
