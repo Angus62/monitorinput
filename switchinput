@@ -1,0 +1,17 @@
+# 'model': 'XB323U',
+# 'inputs': [<InputSource.DP1: 15>, <InputSource.HDMI1: 17>, <InputSource.HDMI2: 18>],
+from monitorcontrol import get_monitors
+
+for monitor in get_monitors():
+    with monitor:
+        # print(f'preset=',monitor.get_color_preset())
+        # print(f'contrast=',monitor.get_contrast())
+        # print(f'input=',monitor.get_input_source())
+        # print(monitor.get_power_mode())
+        i=monitor.get_input_source()
+        if i==17:
+            i=18
+        elif i==18:
+            i=17
+        monitor.set_power_mode(1)
+        monitor.set_input_source(i)
