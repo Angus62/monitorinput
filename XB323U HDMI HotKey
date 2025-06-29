@@ -23,8 +23,8 @@ for m in get_monitors():
             la=tk.Label(root, text=' ACER XB323U \n\n CTRL+0 to switch \n HDMI1 or HDMI2 ' ,font=16 , anchor="center")
             la.pack(expand=1)
             keyboard.add_hotkey('Control+0',set_input)
+            root.mainloop()
         else:
             la = tk.Label(text='No ACER XB323U',font=16)
             la.pack(expand=1)
         keyboard.wait()
-        root.mainloop()
