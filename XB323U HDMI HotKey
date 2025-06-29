@@ -1,5 +1,6 @@
 from monitorcontrol import get_monitors
 import tkinter as tk
+import keyboard
 
 def set_input(event=None):
     i=m.get_input_source()
@@ -9,7 +10,8 @@ def set_input(event=None):
         i=17
     m.set_power_mode(1)
     m.set_input_source(i)
-    
+    # print(i)
+
 root = tk.Tk()
 root.title("XB323U Input Hot-Key")
 root.geometry('300x100')
@@ -18,10 +20,11 @@ for m in get_monitors():
     with m:
         spec = m.get_vcp_capabilities()  # 列出型號會很慢
         if spec['model']=='XB323U':         #檢查型號
-            la=tk.Label(root, text='CTRL+0 to switch \n HDMI1 or HDMI2' ,font=16 , anchor="center")
+            la=tk.Label(root, text=' ACER XB323U \n\n CTRL+0 to switch \n HDMI1 or HDMI2 ' ,font=16 , anchor="center")
             la.pack(expand=1)
-            root.bind('<Control-0>',set_input)
+            keyboard.add_hotkey('Control+0',set_input)
         else:
             la = tk.Label(text='No ACER XB323U',font=16)
             la.pack(expand=1)
+        keyboard.wait()
         root.mainloop()
